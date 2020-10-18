@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: `https://api.flutterwave.com/v3`
+  baseURL: `${process.env.REACT_APP_BASE_URL}/https://api.flutterwave.com/v3`
 });
 
 instance.interceptors.request.use(config => {

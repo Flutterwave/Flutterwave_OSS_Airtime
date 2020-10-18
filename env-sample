@@ -1,5 +1,6 @@
 
 REACT_APP_PUBLIC_KEY=
 REACT_APP_SECRET_KEY=
+REACT_APP_BASE_URL=https://cors-anywhere.herokuapp.com
 
 
