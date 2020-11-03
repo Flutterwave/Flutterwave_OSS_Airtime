@@ -1,15 +1,12 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: `${process.env.REACT_APP_BASE_URL}/https://api.flutterwave.com/v3`
+  baseURL: `${process.env.REACT_APP_BASE_URL}`
 });
 
 instance.interceptors.request.use(config => {
   return {
     ...config,
-    headers: {
-      Authorization: `Bearer ${process.env.REACT_APP_SECRET_KEY}`,
-    },
   };
 });
 

@@ -1,7 +1,11 @@
 import React from 'react';
 import { FlutterWaveButton } from 'flutterwave-react-v3';
+import request from "../request";
+
  
-export default function App({amount}) {
+export default function App({amount, setShowModal}) {
+  const userData = JSON.parse(sessionStorage.getItem('userData'))
+
    const config = {
     public_key: process.env.REACT_APP_PUBLIC_KEY,
     tx_ref: Date.now(),
@@ -9,13 +13,13 @@ export default function App({amount}) {
     currency: 'NGN',
     payment_options: 'card,mobilemoney,ussd',
     customer: {
-      email: 'user@gmail.com',
-      phonenumber: '07064586146',
-      name: 'joel ugwumadu',
+      email: userData.email,
+      phonenumber: userData.phone,
+      name: `${userData.f_name} ${userData.l_name}`,
     },
     customizations: {
-      title: 'Pay Joel',
-      description: 'Payment for items in cart',
+      title: 'Top wallet',
+      description: 'Updating TopIt balance',
       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
     
     },
@@ -23,16 +27,32 @@ export default function App({amount}) {
  
   const fwConfig = {
     ...config,
-    text: `Top up ${amount}`,
-    callback: (response) => {
-      console.log(response);
+    text: `Deposit ${amount}`,
+    callback: async(response) => {
+      try {
+        const res = await request({
+          url: `/balance`,
+          method: "POST",
+          headers: {
+            'Authorization': `${userData.token}`
+        },
+          data: {amount: response.amount},
+        });
+        console.log(res)
+        setShowModal(false)
+        window.location.reload();
+        
+      } catch (error) {
+        console.log(error.response)
+        
+      }
     },
     onClose: () => {},
   };
  
   return (
     
-      <FlutterWaveButton className="cursor" {...fwConfig} />
+      <FlutterWaveButton className="cursor fwbtn-link mt-3" {...fwConfig} />
    
   );
 }
