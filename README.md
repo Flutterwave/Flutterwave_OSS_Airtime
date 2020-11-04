@@ -1,3 +1,7 @@
+<p align="center">
+    <img title="Flutterwave" height="200" src="https://flutterwave.com/images/logo-colored.svg" width="50%"/>
+</p>
+
 ##  Airtime-Disbursement-App
 
 This project is hosted here [airtime-disbursement-app](https://airtime-disbursement-app.netlify.app/).
