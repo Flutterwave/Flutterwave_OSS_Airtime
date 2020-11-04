@@ -2,14 +2,29 @@
     <img title="Flutterwave" height="200" src="https://flutterwave.com/images/logo-colored.svg" width="50%"/>
 </p>
 
-##  Airtime-Disbursement-App
+#  Flutterwave OSS: Airtime Disbursement App
 
 This project is hosted here [airtime-disbursement-app](https://airtime-disbursement-app.netlify.app/).
 
+## Table of Contents
 
+- [About](#about)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Running tests](#test)
+- [Deployment](#deployment)
+- [Built Using](#build-tools)
+- [References](#references)
 
+<a id="about"></a>
+## About
 
-## Installation
+This project is an open-source project that models airtime disbursements for users. The app is powered by Flutterwave v3 charge and bill payment APIs.
+
+<a id="getting-started"></a>
+## Getting Started
+
+### Installation
 
 **On your Local Machine**
 
